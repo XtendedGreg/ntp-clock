@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+
+name=$RC_SVCNAME
+cfgfile="/etc/$RC_SVCNAME/$RC_SVCNAME.conf"
+command="openvt"
+command_args="-c 1 -w /bin/$RC_SVCNAME"
+command_user="root"
+pidfile="/run/$RC_SVCNAME/$RC_SVCNAME.pid"
+command_background="yes"
+
+depend() {
+        need net
+}
+
+start_pre() {
+        checkpath --directory --owner $command_user:$command_user --mode 0775 \
+                /run/$RC_SVCNAME /var/log/$RC_SVCNAME
+}
+
+stop() {
+        PROCESS=$(ps -a | grep $RC_SVCNAME | grep python | awk '{print $1}')
+        if [[ $PROCESS != "" ]]; then
+                kill $PROCESS
+        fi
+        echo -n "Waiting for process $name to stop..."
+        while [ $(ps -a | grep openvt | grep -v grep | wc -l) -gt 0 ]; do
+                echo -n "."
+                sleep 1
+        done
+        echo Done
+}
+
+

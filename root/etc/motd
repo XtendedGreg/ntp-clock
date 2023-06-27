@@ -1,0 +1,20 @@
+################################ NTP-CLOCK ################################
+
+NTP-CLOCK Display EXEC: /bin/ntp-clock
+NTP-CLOCK Display INIT: /etc/init.d/ntp-clock [start|stop|restart]
+
+Configuration File: /etc/ntp-clock/ntp-clock.conf
+
+NTP Configuration: /etc/chrony/chrony.conf
+Syntax to add preferred server: server [address] iburst prefer
+Restart Chrony: /etc/init.d/chrony restart
+
+Boot Config Change:
+mount -o remount,rw /media/mmcblk0p1
+vi /media/mmcblk0p1/usercfg.txt
+Example usercfg.txt file: /root/example_usercfg.txt
+
+You may change this message by editing /etc/motd.
+last update: 6-20-2023 XtendedGreg
+
+###########################################################################
