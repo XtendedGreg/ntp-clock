@@ -7,7 +7,7 @@ NTP Clock Build on Alpine Linux on Raspberry Pi as seen in YouTube Video: https:
   [![Link to installation of Alpine Linux on Raspberry Pi youtube video](https://img.youtube.com/vi/jhtXjLUZB9g/0.jpg)](https://youtu.be/jhtXjLUZB9g)
 - Download the NTP-Clock zip file, extract and run the installer
 ```
-wget -O NTP-Clock.zip https://github.com/XtendedGreg/ntp-clock/archive/refs/heads/main.zip```
+wget -O NTP-Clock.zip https://github.com/XtendedGreg/ntp-clock/archive/refs/heads/main.zip
 unzip NTP-Clock.zip
 cd ntp-clock-main
 chmod +x ntp-clock-install.sh
