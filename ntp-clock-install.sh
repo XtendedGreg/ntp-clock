@@ -18,8 +18,14 @@ apk del build-base python3-dev linux-headers
 cp ./root/bin/ntp-clock /bin/ntp-clock
 cp ./root/bin/ntp_clock_numbers.py /bin/ntp_clock_numbers.py
 cp ./root/etc/init.d/ntp-clock /etc/init.d/ntp-clock
-mkdir -p /etc/ntp-clock
-cp ./root/etc/ntp-clock/ntp-clock.conf /etc/ntp-clock/ntp-clock.conf
+if [ ! -e /etc/ntp-clock ]; then
+  mkdir -p /etc/ntp-clock
+fi
+if [ ! -e /etc/ntp-clock/ntp-clock.conf ]; then
+  cp ./root/etc/ntp-clock/ntp-clock.conf /etc/ntp-clock/ntp-clock.conf
+else
+  echo "Not overwriting existing config file."
+fi
 cp ./root/etc/motd /etc/motd
 cp ./root/root/example_usercfg.txt /root/example_usercfg.txt
 
