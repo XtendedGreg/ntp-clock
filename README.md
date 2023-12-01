@@ -32,4 +32,3 @@ Following the installation procedure, the clock should boot and display the cloc
 - The location information is used to compute the sunrise and sunset time using the astral python package locally on the Pi.
   - This will change the color of the clock text to a darker color at night to prevent eye strain.
 - The installation script can be run multiple times to restore the installation defaults or to upgrade as needed.
-  - WARNING: Running the script again will not preserve any changes to the config file.  Backup the /etc/ntp-clock/ntp-clock.conf config before re-running the installer.
