@@ -5,12 +5,14 @@ NTP Clock Build on Alpine Linux on Raspberry Pi as seen in YouTube Video: https:
 ## To Install NTP-Clock:
 - Install Alpine Linux on a Raspberry Pi following instructions in this YouTube Video: https://youtu.be/jhtXjLUZB9g
   [![Link to installation of Alpine Linux on Raspberry Pi youtube video](https://img.youtube.com/vi/jhtXjLUZB9g/0.jpg)](https://youtu.be/jhtXjLUZB9g)
-- Download the NTP-Clock Zip ```wget -O NTP-Clock.zip https://github.com/XtendedGreg/ntp-clock/archive/refs/heads/main.zip```
-- Copy the Zip File to the /root directory of the Raspberry Pi using and SFTP client like FileZilla
-- Unzip the zip file ```unzip NTP-Clock.zip```
-- Enter the unzipped directory ```cd ntp-clock-main```
-- Add executable permissions to install script ```chmod +x ntp-clock-install.sh```
-- Run the install script ```./ntp-clock-install.sh```
+- Download the NTP-Clock zip file, extract and run the installer
+```
+wget -O NTP-Clock.zip https://github.com/XtendedGreg/ntp-clock/archive/refs/heads/main.zip```
+unzip NTP-Clock.zip
+cd ntp-clock-main
+chmod +x ntp-clock-install.sh
+./ntp-clock-install.sh
+```
 - Change the configuration file ```vi /etc/ntp-clock/ntp-clock.conf```
   - Press "i" to edit the file (INSERT should be shown on the bottom left)
   - Change the timezone to your timezone
@@ -22,7 +24,7 @@ NTP Clock Build on Alpine Linux on Raspberry Pi as seen in YouTube Video: https:
   - Hit the ESC key to exit edit mode
   - Type ":wq" to write the changes and quit the editor
 - Restart the ntp-clock process ```/etc/init.d/ntp-clock restart```
-- Once you have confirmed that the clock starts and runs successfully, save the changes ```lbu commit```
+- Once you have confirmed that the clock starts and runs successfully, save the changes to persist past reboots ```lbu commit -d```
 - Restart the Raspberry Pi ```restart```
 
 Following the installation procedure, the clock should boot and display the clock with the correct time automatically.
