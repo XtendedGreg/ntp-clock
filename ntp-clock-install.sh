@@ -11,7 +11,7 @@ sed -i '/community/s/^# *//' /etc/apk/repositories
 apk update
 apk add python3 py3-pip
 apk add build-base python3-dev linux-headers
-pip3 install pytz colored cursor astral netifaces
+pip3 install --break-system-packages pytz colored cursor astral netifaces
 apk del build-base python3-dev linux-headers
 
 # Copy Files
