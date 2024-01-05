@@ -31,6 +31,7 @@ stop() {
                         count=$(($count+1))
                 else
                         echo "Timed Out."
+                        killall openvt
                         break
                 fi
         done
