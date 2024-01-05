@@ -23,9 +23,16 @@ stop() {
                 kill $PROCESS
         fi
         echo -n "Waiting for process $name to stop..."
+        count=0
         while [ $(ps -a | grep openvt | grep -v grep | wc -l) -gt 0 ]; do
                 echo -n "."
                 sleep 1
+                if [ $count -lt 10 ]; then
+                        count=(($count+1))
+                else
+                        echo "Timed Out."
+                        break
+                fi
         done
         echo Done
 }
